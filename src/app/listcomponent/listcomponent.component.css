@@ -1,0 +1,16 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  background-color: teal;
+  padding: 20px;
+  margin: 13px;
+  justify-content: center;
+  list-style-type: none;
+
+  li {
+    color: white;
+    padding: 12px;
+    margin: 4px;
+    border-left: 6px solid #ccc;
+  }
+}
