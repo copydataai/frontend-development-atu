@@ -1,19 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-// importing component A and B from the ts file
-import { ComponentaComponent } from './componenta/componenta.component';
-import { ComponentbComponent } from './componentb/componentb.component';
-
 
 @Component({
   selector: 'app-root',
-  // inject component A and component B
-  imports: [RouterOutlet, ComponentaComponent, ComponentbComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  // declaring name and age for reactivity by vars
-  name = "Jose"
-  age = 50
+  // declare the counter as a signal for incremental and reactivity
+  counter = signal(0)
+  showLookAtTheStar = signal(false);
+
+  // add increment method to update the signal
+  incrementCounter(): void {
+    this.counter.update(n => n + 1)
+  }
+
+
+  // Add doubleClick event listener for the img
+  onStarDoubleClick(): void {
+    this.showLookAtTheStar.update((value: boolean) => !value)
+  }
 }

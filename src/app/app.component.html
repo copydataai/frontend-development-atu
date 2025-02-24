@@ -1,12 +1,15 @@
-<main>
-  <!-- Thi is plain html-->
- <h2>This is app.component.html</h2>
- <hr>
-  <!-- This is inject/add the node componentA -->
- <app-componenta></app-componenta>
- <hr>
-  <!-- This is inject/add the node componentB -->
- <app-componentb></app-componentb>
+<main class="container">
+    <img (dblclick)="onStarDoubleClick()" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Red_star.svg"
+    height="42" width="42">
+    <!-- Add conditional listener for lookAtTheStar -->
+    @if (showLookAtTheStar()) {
+      <h2>Look At the Star!</h2>
+    }
+    <!-- add button with click event listener  -->
+    <button (click)="incrementCounter()" type="button">press me</button>
+    <br/>
+    <!-- add text base rendering counter as a signal -->
+    <h1>The number of times the button has been pressed {{counter()}}</h1>
 </main>
 
 <router-outlet/>
