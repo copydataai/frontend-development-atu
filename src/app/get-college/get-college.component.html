@@ -1,17 +1,26 @@
 <main>
+  <!-- Main heading for the Student App -->
   <h1>Student App</h1>
 
-  <h1>{{ college.School }}</h1>
-  <p>{{ college.Address }}</p>
+  <!-- Check if 'college' data is available -->
+  @if(college) {
+    <!-- Display the name of the school -->
+    <h1>{{ college.School }}</h1>
+    <!-- Display the address of the school -->
+    <p>{{ college.Address }}</p>
 
-  @if(college.students.length > 0){
+    <!-- Check if the college has students -->
+    @if(college.students.length > 0) {
 
-    <ol>
-      @for(student of college.students; track student){
-      <li>
-        {{student.id}} - {{ student.name }} - {{ student.address }}
-      </li>
-      }
-    </ol>
+      <ol>
+        <!-- Loop through each student in the 'college.students' array -->
+        @for(student of college.students; track student) {
+          <li>
+            <!-- Display student details: ID, Name, and Address -->
+            {{student.id}} - {{ student.name }} - {{ student.address }}
+          </li>
+        }
+      </ol>
+    }
   }
 </main>
