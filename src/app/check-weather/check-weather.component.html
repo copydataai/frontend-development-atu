@@ -1,0 +1,14 @@
+<section>
+  <!-- Check if the 'weather' object exists before displaying any content -->
+  @if(weather) {
+    <h1>
+      Weather in {{weather.name}} <!-- Display the city name -->
+    </h1>
+
+    <!-- Check if the 'weather' array contains at least one item -->
+    @if(weather.weather.length > 0) {
+      <!-- Display the main weather condition and its description -->
+      <p>{{weather.weather[0].main}}, {{weather.weather[0].description}}</p>
+    }
+  }
+</section>
