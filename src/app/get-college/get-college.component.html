@@ -1,0 +1,17 @@
+<main>
+  <h1>Student App</h1>
+
+  <h1>{{ college.School }}</h1>
+  <p>{{ college.Address }}</p>
+
+  @if(college.students.length > 0){
+
+    <ol>
+      @for(student of college.students; track student){
+      <li>
+        {{student.id}} - {{ student.name }} - {{ student.address }}
+      </li>
+      }
+    </ol>
+  }
+</main>
