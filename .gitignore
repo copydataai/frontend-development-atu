@@ -9,6 +9,8 @@
 UserInterfaceState.xcuserstate
 $RECYCLE.BIN/
 
+.projectile-cache.eld
+
 *.log
 log.txt
 
