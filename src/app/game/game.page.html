@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      <ion-icon name="game-controller" slot="start" style="margin-right: 0.5rem;"></ion-icon>
+      Play Trivia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding game-bg">
+  <ion-card *ngIf="question" class="question-card animate-fade-in">
+    <ion-card-header>
+      <ion-card-title class="question-category">
+        <ion-icon name="help-circle" color="warning" style="margin-right:0.5rem;"></ion-icon>
+        {{ question.category || '' }}
+      </ion-card-title>
+      <ion-card-subtitle class="question-progress">
+        <ion-icon name="cube" color="medium" style="margin-right:0.3rem;"></ion-icon>
+        Question {{ currentQuestionIndex + 1 }} of {{ totalQuestions }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="question-text">
+        <strong>{{ question.text || '' }}</strong>
+      </div>
+      <ion-list class="choices-list">
+        <ion-item *ngFor="let choice of question?.choices" class="choice-item">
+          <ion-button expand="block" fill="solid" shape="round" (click)="selectAnswer(choice)" [disabled]="answered" [color]="getChoiceColor(choice)" class="choice-btn">
+            <ion-icon name="help-outline" slot="start"></ion-icon>
+            {{ choice }}
+          </ion-button>
+        </ion-item>
+      </ion-list>
+      <div *ngIf="answered" class="answer-feedback animate-pop-in">
+        <p>
+          <span *ngIf="isCorrect" class="correct-feedback">
+            <ion-icon name="checkmark-circle" color="success"></ion-icon> Correct!
+          </span>
+          <span *ngIf="!isCorrect" class="incorrect-feedback">
+            <ion-icon name="close-circle" color="danger"></ion-icon>
+            Incorrect. The correct answer was: <b>{{ question.answer || '' }}</b>
+          </span>
+        </p>
+        <ion-button expand="block" (click)="nextQuestion()" color="primary" class="next-btn">
+          <ion-icon name="arrow-forward-circle" slot="start"></ion-icon>
+          Next Question
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="gameOver" class="ion-text-center gameover-section animate-fade-in">
+    <ion-icon name="trophy" color="warning" style="font-size:2.5rem;"></ion-icon>
+    <h2 style="margin-top:0.5rem;">Game Over!</h2>
+    <p class="score-text">Your score: <b>{{ score }}</b> / {{ totalQuestions }}</p>
+    <ion-button expand="block" color="success" (click)="restartGame()" class="play-again-btn">
+      <ion-icon name="refresh-circle" slot="start"></ion-icon>
+      Play Again
+    </ion-button>
+    <ion-button expand="block" color="medium" routerLink="/home" class="back-home-btn">
+      <ion-icon name="arrow-back-circle" slot="start"></ion-icon>
+      Back to Home
+    </ion-button>
+  </div>
+
+  <ion-spinner *ngIf="!question && !gameOver" class="loading-spinner"></ion-spinner>
+</ion-content>
