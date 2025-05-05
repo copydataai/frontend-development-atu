@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import type { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
@@ -10,4 +10,16 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'game',
+    loadComponent: () => import('./game/game.page').then((m) => m.GamePage),
+  },
+  {
+    path: 'category',
+    loadComponent: () => import('./category/category.page').then(m => m.CategoryPage),
+  },
+  {
+    path: 'ranking',
+    loadComponent: () => import('./ranking/ranking.page').then(m => m.RankingPage),
+  }
 ];
