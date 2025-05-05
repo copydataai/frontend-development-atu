@@ -1,8 +1,8 @@
 import { Component, type OnInit } from '@angular/core';
 import { NgIf, NgForOf } from '@angular/common';
 import { IonHeader, IonIcon, IonToolbar, IonTitle, IonContent, IonButton, IonSpinner, IonText, IonRippleEffect, IonCardTitle, IonCardHeader, IonCard, IonCol, IonRow, IonGrid } from '@ionic/angular/standalone';
-import type { TriviaService } from '../services/trivia.service';
-import type { Router } from '@angular/router';
+import { TriviaService } from '../services/trivia.service';
+import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 
 @Component({
