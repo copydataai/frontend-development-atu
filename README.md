@@ -2,6 +2,9 @@
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)](https://github.com/copydataai/frontend-development-atu)
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-triviamaster--taupe.vercel.app-brightgreen?logo=vercel)](https://triviamaster-taupe.vercel.app/)
+
+
 > A modern, open-source trivia game built with Angular & Ionic.
 
 ## Overview
@@ -42,3 +45,6 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## License
 [MIT](LICENSE)
+
+## Author
+[Jose Sanchez](https://github.com/copydataai)
