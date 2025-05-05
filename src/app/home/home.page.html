@@ -1,33 +1,50 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Movie
+      Trivia Game OSS
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Movies</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <ul>
-      @for(movie of myMovies; track movie){
-      <li>
-        <ion-card>
-        <img src={{movie.Poster}} alt="" />
-        <ion-card-header>
-          <ion-card-title>
-          {{movie.Title}}
-          </ion-card-title>
-          <ion-card-subtitle>{{movie.Year}}</ion-card-subtitle>
-        </ion-card-header>
-        </ion-card>
-      </li>
-      }
+<ion-content [fullscreen]="true" class="home-content ion-padding">
+  <div class="home-container">
+    <div class="home-header">
+      <div class="home-header-text">
+        <h1 class="home-title">TriviaMaster</h1>
+        <div class="home-subtitle">The ultimate open-source trivia game</div>
+        <p class="home-tagline">
+          <i>Challenge your mind.<br> Compete, learn, and contribute.</i>
+        </p>
+      </div>
+    </div>
+    <div class="home-buttons">
+      <ion-button expand="block" color="secondary" routerLink="/category" class="home-btn play-solo-btn">
+        <ion-icon name="person-circle" slot="start"></ion-icon>
+        Play Solo
+      </ion-button>
+      <ion-button expand="block" color="success" disabled class="home-btn">
+        <ion-icon name="people-circle" slot="start"></ion-icon>
+        Challenge Friends <span class="soon-text">(Coming soon)</span>
+      </ion-button>
+      <ion-button expand="block" color="warning" disabled class="home-btn">
+        <ion-icon name="trophy" slot="start"></ion-icon>
+        Global Tournaments <span class="soon-text">(Coming soon)</span>
+      </ion-button>
+      <ion-button expand="block" color="tertiary" href="https://github.com/copydataai/frontend-development-atu" target="_blank" class="home-btn">
+        <ion-icon name="logo-github" slot="start"></ion-icon>
+        Contribute or View on GitHub
+      </ion-button>
+      <ion-button expand="block" color="medium" routerLink="/ranking" class="home-btn">
+        <ion-icon name="podium" slot="start"></ion-icon>
+        View Rankings
+      </ion-button>
+    </div>
+    <ul class="home-features">
+      <li>100% open source, free forever</li>
+      <li>Thousands of questions in dozens of categories</li>
+      <li>Play solo, with friends, or in tournaments</li>
+      <li>Contribute your own trivia questions easily</li>
+      <li>Works on web & mobile</li>
     </ul>
   </div>
 </ion-content>
