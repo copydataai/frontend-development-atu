@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      <ion-icon name="trophy" slot="start" ></ion-icon>
+      Rankings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ranking-bg">
+  <div *ngIf="loading" class="ranking-spinner">
+    <ion-spinner name="crescent"></ion-spinner>
+    <div class="loading-text">Loading rankings...</div>
+  </div>
+  <div *ngIf="error" class="ranking-error ion-text-center">
+    <ion-icon name="alert-circle" color="danger" ></ion-icon>
+    <div class="error-text">{{ error }}</div>
+  </div>
+  <ion-list *ngIf="!loading && !error && records.length" class="ranking-list animate-fade-in">
+    <ion-item *ngFor="let rec of records; index as i" [class.top1]="i===0" [class.top2]="i===1" [class.top3]="i===2" class="ranking-item">
+      <ion-avatar slot="start" *ngIf="i < 3">
+        <ion-icon [name]="i === 0 ? 'trophy' : (i === 1 ? 'medal' : 'star')" [color]="i === 0 ? 'warning' : (i === 1 ? 'medium' : 'tertiary')" ></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <div class="ranking-title">
+          <span class="ranking-place">{{ i + 1 }}.</span>
+          <span class="ranking-category">{{ rec.category }}</span>
+        </div>
+        <div class="ranking-score">Score: <b>{{ rec.score }}</b> / {{ rec.total }}</div>
+        <div class="ranking-date">{{ rec.date }}</div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="!loading && !error && !records.length" class="ranking-empty ion-text-center animate-fade-in">
+    <ion-icon name="bar-chart" color="medium" ></ion-icon>
+    <div class="empty-text">No ranking records yet.<br>Play a game to get started!</div>
+  </div>
+  <ion-button expand="block" color="medium" routerLink="/home" class="ranking-back-btn">
+    <ion-icon name="arrow-back-circle" slot="start"></ion-icon>
+    Back to Home
+  </ion-button>
+</ion-content>
