@@ -1,48 +1,44 @@
-# Frontend
+# TriviaMaster Frontend
 
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)](https://github.com/copydataai/frontend-development-atu)
 
-> This is a repository to follow the frontend development by ATU.
+> A modern, open-source trivia game built with Angular & Ionic.
 
+## Overview
+TriviaMaster is a responsive and visually polished trivia game. Challenge yourself with thousands of questions, track your rankings, and enjoy a seamless experience across devices.
 
-**each lab is with a specific branch as lab2, lab3, etc**
+## Features
+- **Modern UI**: Sleek, animated, and mobile-friendly interface
+- **Solo Play**: Answer trivia questions across multiple categories
+- **Category Selection**: Choose from a wide range of trivia topics
+- **Rankings**: View your best scores and compete with yourself
+- **Feedback & Animations**: Instant feedback, icons, and smooth transitions
+- **Open Source**: Easily extend and contribute
 
+## Screenshots
 
-## Lab1
-- primitives
-- typescript and transpiling to javascript
+### Main Menu
+![Main Menu](./assets/triviamaster-main-menu.png)
 
-## lab2
+### Category Selection
+![Category Selection](./assets/triviamaster-categories.png)
 
-In this exercise you are required to create an array, and then create functions to add,
-remove and display the items in this array. To complete this exercise you will need to
-do the following:
-(a) Create an array of strings.
-(b) Create an addTask function:
-i. It receives a string as a parameter called task.
-ii. It adds the task to the array.
-iii. It prints a message in the console indicating the insertion.
-iv. It returns the number of elements in the array after the insertion.
-(c) Create a listAllTasks function:
-i. It iterates over all the tasks in the array.
-ii. It prints each array item in the console.
-(d) Create a deleteTask function:
-i. It receives a string as a parameter called task.
-ii. It removes that string from the array.
-iii. It prints in console a message indicating the deletion.
-iv. It returns the number of elements in the array after the deletion.
+### Game Flow
+![Game Flow](./assets/triviamaster-game-flow.png)
 
-In this exercise, the aim is to implement the same functionality as exercise 2 using an
-interface instead. A class will be required to implement the interface. To complete this
-exercise you will need to do the following: Create an interface and add the following to
-it:
-(a) An array of strings.
-(b) An addTask function which:
-i. Recieves a string as a parameter.
-ii. Prints a message in the console indicating the insertion.
-iii. Returns the number of elements in the array after the insertion.
-(c) A listAllTasks function which:
-i. Prints in the console all the tasks of the list.
-(d) A deleteTask function which:
-i. Recieves a string as a parameter.
-ii. Prints a message in the console indicating the deletion.
-iii. Returns the number of elements in the array after the deletion.
+### End Game / Results
+![End Game](./assets/triviamaster-end-game.png)
+
+### Rankings
+![Rankings](./assets/triviamaster-ranking.png)
+
+## Getting Started
+1. Clone the repo
+2. Install dependencies: `npm install`
+3. Run the app: `npm start`
+
+## Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](LICENSE)
