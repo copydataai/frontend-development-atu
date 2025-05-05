@@ -25,18 +25,18 @@ export interface Question {
 export class TriviaService {
   private readonly API_URL = 'https://opentdb.com';
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   getCategories(): Observable<{ id: number; name: string }[]> {
-    return this.http
+    return this.httpClient
       .get<{ trivia_categories: Array<{ id: number; name: string }> }>(
         `${this.API_URL}/api_category.php`
       )
       .pipe(map(res => res.trivia_categories));
   }
 
-  getQuestions(categoryId: number, amount: number = 10): Observable<Question[]> {
-    return this.http
+  getQuestions(categoryId: number, amount = 10): Observable<Question[]> {
+    return this.httpClient
       .get<{ results: ApiQuestion[] }>(
         `${this.API_URL}/api.php?amount=${amount}&category=${categoryId}`
       )
