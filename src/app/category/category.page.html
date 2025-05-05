@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="list-circle" slot="start"></ion-icon>
+      Select Category
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-spinner *ngIf="loading" class="d-center"></ion-spinner>
+  <div *ngIf="error" class="ion-text-center">
+    <ion-text color="danger">{{ error }}</ion-text>
+  </div>
+  <div *ngIf="!loading && !error">
+    <ion-grid>
+      <ion-row>
+        <ion-col 
+          size="12" size-sm="6" size-md="4" size-lg="3"
+          *ngFor="let cat of categories"
+          class="category-col"
+        >
+          <ion-card 
+            button 
+            (click)="selectCategory(cat)"
+            class="category-card"
+          >
+            <ion-card-header>
+              <ion-card-title>
+                {{ cat.name }}
+              </ion-card-title>
+            </ion-card-header>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-button expand="block" color="medium" routerLink="/home">
+    <ion-icon name="arrow-back-circle" slot="start"></ion-icon>
+    Back to Home
+  </ion-button>
+</ion-content>
